@@ -1,0 +1,27 @@
+{
+  "name": "pcm-silence",
+  "description": "Infinitely generate PCM data of silence",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "author": "Raymond Hammarling",
+  "scripts": {
+    "lint": "eslint src/ test/",
+    "test": "mocha --compilers js:babel/register,es6:babel/register,es6.js:babel/register test/",
+    "build": "babel -d lib/ src/",
+    "pretest": "npm run lint",
+    "prebuild": "npm run test",
+    "watch": "onchange src/ -- npm run build && echo Done",
+    "dev": "npm run watch",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "babel": "^5.8.21",
+    "babel-eslint": "^4.0.10",
+    "chai": "^3.2.0",
+    "eslint": "^1.2.0",
+    "eslint-config-kellyirc": "^2.0.0",
+    "mocha": "^2.2.5",
+    "onchange": "^2.0.0"
+  }
+}
