@@ -36,3 +36,5 @@ export default class PcmSilenceReadable extends stream.Readable {
         this.push(generateSilence(size, this.format));
     }
 }
+
+export { PcmSilenceReadable as Readable };
