@@ -9,6 +9,8 @@ function silentSampleValue(format) {
 }
 
 export function generateSilence(size, format) {
+    format = defaults(format);
+
     const byteDepth = format.bitDepth / 8;
     const frameSize = format.channels * byteDepth;
     const sampleBuf = new Buffer(Math.floor(size / frameSize) * frameSize);
@@ -27,7 +29,7 @@ export default class PcmSilenceReadable extends stream.Readable {
     constructor(format) {
         super();
 
-        this.format = defaults(format);
+        this.format = format;
     }
 
     _read(size) {
