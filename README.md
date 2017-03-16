@@ -1,16 +1,24 @@
 # pcm-silence
 Infinitely generate PCM data of silence
 
+
 ## Installing
 `npm install pcm-silence`
 
-## Example usage
-```js
-var pcm-silence = require('pcm-silence');
 
-// Do whatever you want with 'pcm-silence'!
+## Example usage
+```javascript
+const pcm-silence = require('pcm-silence');
+
+// 4 bytes (32 bits) * 16000hz * 1 channel (mono)
+const oneSecond = 4 * 16000 * 1
+
+// buf is a node buffer containing 1 second of silence in signed, 32 bit, mono,
+// 16khz, little endian PCM format
+const buf = generateSilence(oneSecond, { float: true, byteOrder: 'LE' });
 ```
     
+
 ## License
 The MIT License (MIT)
 

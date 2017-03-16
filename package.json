@@ -5,6 +5,15 @@
   "license": "MIT",
   "main": "lib/index.js",
   "author": "Raymond Hammarling",
+  "keywords": [
+    "pcm",
+    "silence",
+    "generator"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raymond-h/pcm-silence.git"
+  },
   "scripts": {
     "lint": "eslint src/ test/",
     "test": "mocha --compilers js:babel/register,es6:babel/register,es6.js:babel/register test/",
