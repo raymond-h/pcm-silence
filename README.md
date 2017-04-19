@@ -8,16 +8,38 @@ Infinitely generate PCM data of silence
 
 ## Example usage
 ```javascript
-const pcm-silence = require('pcm-silence');
+const generateSilence = require('pcm-silence').generateSilence
 
 // 4 bytes (32 bits) * 16000hz * 1 channel (mono)
 const oneSecond = 4 * 16000 * 1
 
 // buf is a node buffer containing 1 second of silence in signed, 32 bit, mono,
 // 16khz, little endian PCM format
-const buf = generateSilence(oneSecond, { float: true, byteOrder: 'LE' });
+const buf = generateSilence(oneSecond, { float: true, byteOrder: 'LE' })
 ```
-    
+
+
+## Streaming usage
+
+You may also generate a continuous stream of silence:
+
+```javascript
+const PcmSilenceReadable = require('pcm-silence').PcmSilenceReadable
+const Speaker            = require('speaker')
+
+
+const speaker = new Speaker({
+  channels: 1,
+  bitDepth: 32,
+  float: true,
+  signed: true
+})
+
+const silence = new PcmSilenceReadable({ float: true, byteOrder: 'LE' })
+
+silence.pipe(speaker)
+```
+
 
 ## License
 The MIT License (MIT)
